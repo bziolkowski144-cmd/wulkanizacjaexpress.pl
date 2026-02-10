@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Wulkanizacja Express - profesjonalna wymiana opon, wyważanie kół i serwis oponowy. Szybko, bezpiecznie, niezawodnie.">
+    <meta name="keywords" content="wulkanizacja, wymiana opon, opony letnie, opony zimowe, wyważanie kół, Warszawa">
+    <meta name="author" content="Wulkanizacja Express">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Wulkanizacja Express - Profesjonalny Serwis Oponowy">
+    <meta property="og:description" content="Szybka i profesjonalna wulkanizacja - wymiana opon, wyważanie kół, naprawa felg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wulkanizacjaexpress.pl">
+    
+    <title>Wulkanizacja Express - Profesjonalny Serwis Oponowy</title>
+    <link rel="icon" href="1.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===================================
+           CSS Reset & Base Styles
+           =================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary-color: #f5c400;
+            --primary-dark: #d4a900;
+            --primary-light: #ffde59;
+            --bg-dark: #0f0f0f;
+            --bg-dark-soft: #1a1a1a;
+            --bg-dark-card: #222222;
+            --text-white: #ffffff;
+            --text-gray: #bdbdbd;
+            --text-dark: #0f0f0f;
+            --border-color: #333333;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.6);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-white);
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* ===================================
+           Top Bar
+           =================================== */
+
+        .top-bar {
+            background: var(--bg-dark-soft);
+            border-bottom: 2px solid var(--primary-color);
+            padding: 12px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-link {
+            color: var(--text-gray);
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 0;
+        }
+
+        .top-bar-link i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        /* ===================================
+           Header (Horizontal Layout)
+           =================================== */
+
+        .header {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-soft) 100%);
+            padding: 30px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            max-width: 140px;
+            height: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .header-title {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .header-subtitle {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        /* ===================================
+           Navigation
+           =================================== */
+
+        .nav {
+            background: rgba(15, 15, 15, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            height: 70px;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(245, 196, 0, 0.1);
+        }
+
+        .nav-social i {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            gap: 6px;
+            position: absolute;
+            right: 15px;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--text-white);
+            border-radius: 2px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        /* Nav Toggle Animation */
+        .nav-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* ===================================
+           Hero Section
+           =================================== */
+
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('wulkanizacja.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            max-width: 800px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            color: var(--text-white);
+            max-width: 650px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* ===================================
+           Buttons
+           =================================== */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 200px;
+            min-height: 56px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(245, 196, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 196, 0, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===================================
+           Container & Sections
+           =================================== */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .section {
+            margin-bottom: 120px;
+        }
+
+        .section-alt {
+            background: var(--bg-dark-soft);
+            padding: 80px 40px;
+            border-radius: 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* ===================================
+           Services Grid
+           =================================== */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-dark-card);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-white);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ===================================
+           About Section
+           =================================== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-white);
+            font-weight: 500;
+        }
+        .feature-item i {
+            color: var(--primary-color);
+        }
+        .about-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===================================
+           Accordion (FAQ)
+           =================================== */
+
+        .accordion-item {
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-white);
+            font-size: 1.1rem;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header[aria-expanded="true"] .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--primary-color);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .accordion-body {
+            padding: 0 25px 25px;
+            color: var(--text-gray);
+        }
+
+        /* ===================================
+           Contact Section
+           =================================== */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item { display: flex; gap: 20px; align-items: flex-start; }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--bg-dark-card);
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 { font-size: 1.2rem; color: var(--primary-color); text-transform: uppercase; margin-bottom: 4px; }
+        .contact-details p, .contact-details a { 
+            font-size: 1.05rem; 
+            color: var(--text-gray); 
+        }
+
+        .contact-map {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            background: var(--bg-dark-card);
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        /* ===================================
+           Footer
+           =================================== */
+
+        .footer { background: var(--bg-dark-soft); border-top: 3px solid var(--primary-color); padding: 70px 0 0; }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 { color: var(--primary-color); margin-bottom: 20px; text-transform: uppercase; }
+        .footer-contact li { 
+            display: flex; 
+            gap: 12px; 
+            margin-bottom: 12px; 
+            color: var(--text-gray); 
+        }
+        .footer-social { display: flex; gap: 15px; }
+        .footer-social a {
+            width: 44px; height: 44px; background: var(--bg-dark-card); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 20px;
+        }
+
+        .footer-bottom { text-align: center; padding: 25px; border-top: 1px solid var(--border-color); font-size: 14px; color: var(--text-gray); }
+
+        /* ===================================
+           Cookie Banner
+           =================================== */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--bg-dark-soft);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            z-index: 9999;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .cookie-banner.active { display: flex; }
+        .cookie-text { flex: 1; min-width: 250px; font-size: 14px; color: var(--text-white); }
+        .cookie-text a { color: var(--primary-color); text-decoration: underline; }
+        .cookie-btns { display: flex; gap: 10px; }
+        .btn-cookie { padding: 10px 20px; font-size: 14px; min-width: auto; min-height: auto; }
+
+        /* ===================================
+           Media Queries
+           =================================== */
+
+        @media (max-width: 1024px) {
+            .about-content, .contact-grid { grid-template-columns: 1fr; }
+            .about-image { order: -1; max-width: 600px; margin: 0 auto; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .header-container { gap: 15px; }
+            .logo-img { max-width: 100px; }
+            .header-text { text-align: center; }
+            .nav-toggle { display: flex; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+                transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .nav-menu.active { height: auto; padding: 40px 0; border-bottom: 1px solid var(--border-color); }
+            .nav-link { font-size: 1.2rem; width: 100%; text-align: center; padding: 15px; }
+            .hero { height: 75vh; text-align: center; }
+            .hero-btns { justify-content: center; }
+            .btn { width: 100%; }
+            .about-features { grid-template-columns: 1fr; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-text">
+            Używamy plików cookies, aby zapewnić najlepszą jakość korzystania z naszej strony, w tym do wyświetlania map Google. Kontynuując, zgadzasz się na naszą <a href="#polityka">Politykę Prywatności</a>.
+        </div>
+        <div class="cookie-btns">
+            <button id="cookie-accept" class="btn btn-primary btn-cookie">Akceptuję</button>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a href="mailto:kontakt@wulkanizacjaexpress.pl" class="top-bar-link">
+                <i class="fas fa-envelope"></i>
+                <span>kontakt@wulkanizacjaexpress.pl</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <img src="logo.png" alt="Logo Wulkanizacja Express" class="logo-img">
+            <div class="header-text">
+                <h1 class="header-title">Wulkanizacja Express</h1>
+                <p class="header-subtitle">Profesjonalny serwis oponowy i klimatyzacji - szybko i niezawodnie</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Otwórz menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#uslugi" class="nav-link">Usługi</a></li>
+                <li><a href="#o-nas" class="nav-link">O nas</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#rezerwacje" class="nav-link">Rezerwacje</a></li>
+                <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="nav-link nav-social"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="nav-link nav-social"><i class="fab fa-tiktok"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">Szybka i profesjonalna wulkanizacja</h2>
+            <p class="hero-subtitle">Twoje bezpieczeństwo na drodze jest naszym priorytetem. Dbamy o Twoje opony i klimatyzację jak o własne.</p>
+            <div class="hero-btns">
+                <a href="#rezerwacje" class="btn btn-primary">Umów wizytę</a>
+                <a href="#uslugi" class="btn btn-outline">Poznaj usługi</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Services Section -->
+        <section class="section reveal" id="uslugi">
+            <div class="section-header">
+                <h2 class="section-title">Nasze Usługi</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
+                    <h3>Wymiana opon</h3>
+                    <p>Profesjonalna wymiana opon letnich i zimowych dla samochodów osobowych i motocykli.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Naprawa opon</h3>
+                    <p>Szybka naprawa przebić i uszkodzeń opon metodą wulkanizacji na gorąco lub zimno.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Wyważanie kół</h3>
+                    <p>Precyzyjne wyważanie kół na nowoczesnych maszynach dla maksymalnego komfortu jazdy.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-circle-notch"></i></div>
+                    <h3>Naprawa felg</h3>
+                    <p>Profesjonalna regeneracja, prostowanie i naprawa felg aluminiowych oraz stalowych.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-snowflake"></i></div>
+                    <h3>Naprawa i serwis klimatyzacji</h3>
+                    <p>Kompleksowy serwis, odgrzybianie oraz nabijanie klimatyzacji samochodowej.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-warehouse"></i></div>
+                    <h3>Przechowalnia</h3>
+                    <p>Bezpieczne przechowywanie opon w odpowiednich warunkach poza sezonem.</p>
+                </div>
+				 <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-money-bill"></i></div>
+                    <h3>Sprzedaż opon</h3>
+                    <p>Szeroki wybór opon letnich, zimowych i całorocznych. Fachowe doradztwo i dopasowanie do każdego pojazdu.</p>
+                </div>
+				 <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-money-bill"></i></div>
+                    <h3>Sprzedaż felg</h3>
+                    <p>Felgi stalowe i aluminiowe do różnych marek samochodów. Pomoc w doborze odpowiedniego rozmiaru i wzoru.</p>
+                </div>
+				 <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car-crash"></i></div>
+                    <h3>Sprzedaż części samochodowych</h3>
+                    <p>Nowe części samochodowe do aut osobowych i dostawczych. Sprawdzone produkty i szybka realizacja zamówień.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section section-alt reveal" id="o-nas">
+            <div class="section-header">
+                <h2 class="section-title">O nas</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Wulkanizacja Express to zespół doświadczonych mechaników z pasją do motoryzacji. Od lat dbamy o bezpieczeństwo naszych klientów na drodze, oferując kompleksowe usługi wulkanizacyjne najwyższej jakości.</p>
+                    <div class="about-features">
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Profesjonalna obsługa</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Nowoczesny sprzęt</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Wykwalifikowany zespół</span></div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i><span>Gwarancja jakości</span></div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="mechanik przy oponach.png" alt="Zespół Wulkanizacji Express">
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section reveal" id="faq">
+            <div class="section-header">
+                <h2 class="section-title">Często zadawane pytania</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        Ile trwa wymiana opon?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Standardowa wymiana kompletu opon trwa zazwyczaj od 30 do 45 minut, w zależności od rozmiaru kół i stopnia trudności.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        Czy muszę się umawiać na wizytę?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Zalecamy rezerwację terminu online lub telefonicznie, szczególnie w sezonie wymiany opon, aby uniknąć kolejek.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservations Section -->
+        <section class="section reveal" id="rezerwacje" style="background: var(--bg-dark-card); padding: 60px; border-radius: 30px; text-align: center;">
+            <div class="section-header">
+                <h2 class="section-title">Zarezerwuj termin</h2>
+                <div class="section-divider"></div>
+                <p style="margin-top: 20px; color: var(--text-gray);">Skorzystaj z naszego systemu rezerwacji online lub zadzwoń bezpośrednio.</p>
+            </div>
+            <a href="tel:+797629371" class="btn btn-primary"><i class="fas fa-phone"></i> +48 797 629 371</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section reveal" id="kontakt">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-details"><h3>Telefon</h3><p>+48 797 629 371</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details"><h3>Email</h3><a href="mailto:kontakt@wulkanizacjaexpress.pl">kontakt@wulkanizacjaexpress.pl</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details"><h3>Adres</h3><p>ul. Bartycka 116, 00-716 Warszawa</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-details"><h3>Godziny otwarcia</h3><p>Pon - Pt: 8:00 - 22:00</p></div>
+                    </div>
+                </div>
+                <div class="contact-map" id="map-container">
+                    <div class="map-placeholder">
+                        <p>Zaakceptuj pliki cookies, aby wyświetlić mapę dojazdu.</p>
+                        <button onclick="acceptCookies()" class="btn btn-outline btn-cookie" style="margin-top:15px">Akceptuję cookies</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Wulkanizacja Express</h4>
+                <p>Profesjonalny serwis oponowy i klimatyzacji w Warszawie. Twoje bezpieczeństwo to nasz priorytet.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-envelope"></i> kontakt@wulkanizacjaexpress.pl</li>
+                    <li><i class="fas fa-map-marker-alt"></i> ul. Bartycka 116, Warszawa</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Śledź nas</h4>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Informacje Prawne</h4>
+                <ul class="footer-contact">
+                    <li><a href="polityka-prywatnosci.html"><i class="fas fa-file-contract"></i> Polityka Prywatności</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Regulamin</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Wulkanizacja Express.</p></div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Wróć na górę"><i class="fas fa-chevron-up"></i></button>
+
+    <script>
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/;SameSite=Lax";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i=0;i < ca.length;i++) {
+                let c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+        function loadMap() {
+            const mapContainer = document.getElementById('map-container');
+            if (mapContainer) {
+                mapContainer.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.6465451234567!2d21.0543210!3d52.2109870!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccf0f0f0f0f0%3A0x0!2sBartycka%20116%2C%20Warszawa!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl" width="100%" height="350" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>';
+            }
+        }
+
+        function acceptCookies() {
+            setCookie('cookie_consent', 'accepted', 365);
+            document.getElementById('cookie-banner').classList.remove('active');
+            loadMap();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!getCookie('cookie_consent')) {
+                document.getElementById('cookie-banner').classList.add('active');
+            } else {
+                loadMap();
+            }
+
+            document.getElementById('cookie-accept').addEventListener('click', acceptCookies);
+
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isOpen = header.getAttribute('aria-expanded') === 'true';
+                    header.setAttribute('aria-expanded', !isOpen);
+                    content.style.maxHeight = !isOpen ? content.scrollHeight + "px" : null;
+                });
+            });
+
+            const reveal = () => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+                });
+            };
+            window.addEventListener('scroll', () => {
+                reveal();
+                const btt = document.getElementById('back-to-top');
+                if (window.scrollY > 500) btt.classList.add('visible');
+                else btt.classList.remove('visible');
+            });
+            reveal();
+            
+            document.getElementById('back-to-top').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
