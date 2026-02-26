@@ -19,18 +19,23 @@
     <title>Wulkanizacja Warszawa - Wymiana Opon, Wyważanie Kół | Wulkanizacja Express</title>
     <link rel="icon" href="1.png" type="image/png">
     
-    <!-- Google Fonts - Optimized with display=swap for faster rendering -->
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" as="style">
+    <link rel="preload" href="logo.png" as="image" type="image/png">
+    <link rel="preload" href="wulkanizacja.jpg" as="image" type="image/jpeg">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons - Optimized with async loading -->
+    <!-- Font Awesome Icons - Async Loading -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <style>
         /* ===================================
-           CSS Reset & Base Styles
+           CRITICAL CSS - Inline for instant rendering
            =================================== */
 
         * {
@@ -61,7 +66,6 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
-            /* Prevent zooming on input focus on mobile */
             -webkit-user-select: none;
             -webkit-touch-callout: none;
         }
@@ -73,10 +77,8 @@
             background-color: var(--bg-dark);
             overflow-x: hidden;
             width: 100%;
-            /* Optimize for mobile rendering */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            /* Prevent scrollbar jank */
             scrollbar-gutter: stable;
         }
 
@@ -84,17 +86,12 @@
             max-width: 100%;
             height: auto;
             display: block;
-            /* Optimize image rendering */
             image-rendering: -webkit-optimize-contrast;
-            /* Lazy load images on mobile */
-            loading: lazy;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            /* Reduce transition on mobile for better performance */
-            transition: color 0.2s ease;
         }
 
         ul {
@@ -106,14 +103,9 @@
             cursor: pointer;
             border: none;
             background: none;
-            /* Optimize touch target size */
             min-height: 44px;
             min-width: 44px;
         }
-
-        /* ===================================
-           Top Bar
-           =================================== */
 
         .top-bar {
             background: var(--bg-dark-soft);
@@ -124,7 +116,6 @@
             position: sticky;
             top: 0;
             z-index: 9999;
-            will-change: transform;
         }
 
         .top-bar-content {
@@ -153,10 +144,6 @@
             font-size: 16px;
         }
 
-        /* ===================================
-           Header (Horizontal Layout)
-           =================================== */
-
         .header {
             background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-soft) 100%);
             padding: 30px 20px;
@@ -178,8 +165,6 @@
             height: auto;
             object-fit: contain;
             flex-shrink: 0;
-            /* Optimize image rendering on mobile */
-            will-change: transform;
         }
 
         .header-text {
@@ -202,24 +187,6 @@
             font-weight: 300;
         }
 
-        .contact-link {
-            display: inline-block;
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .contact-link:active {
-            color: #f1c40f;
-            background-color: rgba(241, 196, 15, 0.15);
-            padding: 3px 6px;
-            border-radius: 6px;
-        }
-
-        /* ===================================
-           Navigation
-           =================================== */
-
         .nav {
             background: rgba(15, 15, 15, 0.95);
             position: sticky;
@@ -231,7 +198,6 @@
             display: flex;
             justify-content: center;
             height: 70px;
-            will-change: transform;
         }
 
         .nav-container {
@@ -256,20 +222,15 @@
             font-size: 15px;
             padding: 10px 15px;
             border-radius: 8px;
-            /* Touch-friendly size */
             min-height: 44px;
             display: flex;
             align-items: center;
+            transition: color 0.2s ease, background-color 0.2s ease;
         }
 
-        .nav-link:active, .nav-link.active {
+        .nav-link:hover, .nav-link:active, .nav-link.active {
             color: var(--primary-color);
             background: rgba(245, 196, 0, 0.1);
-        }
-
-        .nav-social i {
-            color: var(--primary-color);
-            font-size: 18px;
         }
 
         .nav-toggle {
@@ -282,7 +243,6 @@
             gap: 6px;
             position: absolute;
             right: 15px;
-            /* Optimize for touch */
             touch-action: manipulation;
         }
 
@@ -292,17 +252,12 @@
             background: var(--text-white);
             border-radius: 2px;
             transform-origin: center;
-            will-change: transform;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        /* Nav Toggle Animation */
         .nav-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
         .nav-toggle.active span:nth-child(2) { opacity: 0; }
         .nav-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-        /* ===================================
-           Hero Section
-           =================================== */
 
         .hero {
             position: relative;
@@ -312,7 +267,6 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            /* Optimize background rendering */
             background-attachment: fixed;
             background-size: cover;
         }
@@ -321,7 +275,6 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(90deg, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.6) 100%);
-            will-change: opacity;
         }
 
         .hero-content {
@@ -357,10 +310,6 @@
             flex-wrap: wrap;
         }
 
-        /* ===================================
-           Buttons
-           =================================== */
-
         .btn {
             display: inline-flex;
             align-items: center;
@@ -372,15 +321,18 @@
             border-radius: var(--border-radius);
             min-height: 56px;
             min-width: 200px;
-            /* Optimize for touch */
             touch-action: manipulation;
-            /* Reduce animations on mobile */
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         .btn-primary {
             background: var(--primary-color);
             color: var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
         }
 
         .btn-primary:active {
@@ -393,14 +345,15 @@
             color: var(--primary-color);
         }
 
+        .btn-outline:hover {
+            background: rgba(245, 196, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
         .btn-outline:active {
             background: rgba(245, 196, 0, 0.1);
             transform: scale(0.98);
         }
-
-        /* ===================================
-           Section Styles
-           =================================== */
 
         .section {
             max-width: 1200px;
@@ -428,10 +381,6 @@
             margin: 0 auto;
         }
 
-        /* ===================================
-           Services Section
-           =================================== */
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -444,8 +393,13 @@
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
             text-align: center;
-            transition: border-color 0.2s ease;
-            will-change: transform;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-card:active {
@@ -469,10 +423,6 @@
             color: var(--text-gray);
             line-height: 1.8;
         }
-
-        /* ===================================
-           About Section
-           =================================== */
 
         .about-content {
             display: grid;
@@ -526,10 +476,6 @@
             display: block;
         }
 
-        /* ===================================
-           Accordion (FAQ)
-           =================================== */
-
         .faq-container {
             display: flex;
             flex-direction: column;
@@ -557,11 +503,11 @@
             cursor: pointer;
             min-height: 56px;
             touch-action: manipulation;
+            transition: background-color 0.2s ease;
         }
 
         .accordion-icon {
             transition: transform 0.3s ease;
-            will-change: transform;
         }
 
         .accordion-header[aria-expanded="true"] .accordion-icon {
@@ -580,10 +526,6 @@
             padding: 0 25px 25px;
             color: var(--text-gray);
         }
-
-        /* ===================================
-           Contact Section
-           =================================== */
 
         .contact-grid {
             display: grid;
@@ -624,14 +566,23 @@
             margin-bottom: 4px;
         }
 
-        .contact-details p, .contact-details a {
+        .contact-details p {
             font-size: 1.05rem;
             color: var(--text-gray);
         }
 
         .contact-details a {
-            transition: color 0.2s ease;
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            transition: color 0.2s ease, background-color 0.2s ease;
             touch-action: manipulation;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-color);
+            background-color: rgba(245, 196, 0, 0.15);
+            padding: 3px 6px;
+            border-radius: 6px;
         }
 
         .contact-details a:active {
@@ -658,10 +609,6 @@
             text-align: center;
             color: var(--text-gray);
         }
-
-        /* ===================================
-           Footer
-           =================================== */
 
         .footer {
             background: var(--bg-dark-soft);
@@ -716,10 +663,6 @@
             color: var(--text-gray);
         }
 
-        /* ===================================
-           Cookie Banner
-           =================================== */
-
         .cookie-banner {
             position: fixed;
             bottom: 20px;
@@ -736,7 +679,6 @@
             justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
-            will-change: transform;
         }
 
         .cookie-banner.active {
@@ -767,15 +709,10 @@
             min-height: auto;
         }
 
-        /* ===================================
-           Animations & Utility Classes
-           =================================== */
-
         .reveal {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            will-change: opacity, transform;
         }
 
         .reveal.active {
@@ -803,17 +740,12 @@
             z-index: 99;
             cursor: pointer;
             touch-action: manipulation;
-            will-change: opacity;
         }
 
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
-
-        /* ===================================
-           Media Queries - Mobile Optimizations
-           =================================== */
 
         @media (max-width: 1024px) {
             .about-content, .contact-grid {
@@ -827,31 +759,21 @@
         }
 
         @media (max-width: 768px) {
-            /* Reduce padding on mobile */
-            .section {
-                padding: 60px 15px;
-            }
-
             .top-bar {
                 display: none;
             }
-
             .header-container {
                 gap: 15px;
             }
-
             .logo-img {
                 max-width: 100px;
             }
-
             .header-text {
                 text-align: center;
             }
-
             .nav-toggle {
                 display: flex;
             }
-
             .nav-menu {
                 position: fixed;
                 top: 70px;
@@ -863,70 +785,55 @@
                 align-items: center;
                 overflow: hidden;
                 transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                will-change: height;
             }
-
             .nav-menu.active {
                 height: auto;
                 padding: 40px 0;
                 border-bottom: 1px solid var(--border-color);
             }
-
             .nav-link {
                 font-size: 1.2rem;
                 width: 100%;
                 text-align: center;
                 padding: 15px;
             }
-
             .hero {
                 height: 75vh;
                 text-align: center;
-                /* Disable fixed background on mobile for better performance */
                 background-attachment: scroll;
             }
-
             .hero-btns {
                 justify-content: center;
                 flex-direction: column;
             }
-
             .btn {
                 width: 100%;
                 min-width: unset;
             }
-
             .about-features {
                 grid-template-columns: 1fr;
             }
-
-            /* Reduce service card padding on mobile */
+            .section {
+                padding: 60px 15px;
+            }
             .service-card {
                 padding: 30px 20px;
             }
-
-            /* Optimize contact grid for mobile */
             .contact-grid {
                 gap: 30px;
             }
-
             .contact-item {
                 gap: 15px;
             }
-
             .contact-icon {
                 width: 48px;
                 height: 48px;
                 font-size: 18px;
             }
-
-            /* Reduce footer padding */
             .footer-content {
                 padding: 0 15px 30px;
                 gap: 30px;
             }
-
-            /* Optimize cookie banner for mobile */
             .cookie-banner {
                 bottom: 10px;
                 left: 10px;
@@ -934,18 +841,14 @@
                 padding: 15px;
                 gap: 15px;
             }
-
             .cookie-text {
                 font-size: 13px;
                 min-width: unset;
             }
-
             .btn-cookie {
                 padding: 8px 16px;
                 font-size: 13px;
             }
-
-            /* Back to top - larger on mobile */
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
@@ -956,71 +859,55 @@
         }
 
         @media (max-width: 480px) {
-            /* Extra small devices optimization */
             .section {
                 padding: 40px 12px;
             }
-
             .section-title {
                 font-size: clamp(1.5rem, 5vw, 2rem);
             }
-
             .hero-title {
                 font-size: clamp(1.8rem, 8vw, 3rem);
             }
-
             .hero-subtitle {
                 font-size: clamp(0.9rem, 3vw, 1.1rem);
             }
-
             .header {
                 padding: 20px 15px;
             }
-
             .header-container {
                 gap: 10px;
             }
-
             .logo-img {
                 max-width: 80px;
             }
-
             .services-grid {
                 grid-template-columns: 1fr;
             }
-
             .about-features {
                 grid-template-columns: 1fr;
             }
-
             .feature-item {
                 padding: 12px;
                 gap: 10px;
             }
-
             .feature-item i {
                 font-size: 20px;
             }
-
             .contact-details h3 {
                 font-size: 1rem;
             }
-
             .contact-details p, .contact-details a {
                 font-size: 0.95rem;
             }
-
             .footer-section h4 {
                 font-size: 0.95rem;
             }
-
             .footer-contact li {
                 font-size: 0.9rem;
                 gap: 8px;
             }
         }
 
-        /* Reduce animations on devices with reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1030,7 +917,6 @@
             }
         }
 
-        /* Optimize for low-end devices */
         @media (prefers-reduced-data: reduce) {
             img {
                 image-rendering: pixelated;
@@ -1067,7 +953,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <img src="logo.png" alt="Logo Wulkanizacja Express" class="logo-img">
+            <img src="logo.png" alt="Logo Wulkanizacja Express" class="logo-img" width="200" height="auto" loading="eager" decoding="sync">
             <div class="header-text">
                 <h1 class="header-title">Wulkanizacja Express</h1>
                 <p class="header-subtitle">Profesjonalny serwis oponowy i klimatyzacji - szybko i niezawodnie</p>
@@ -1177,7 +1063,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="mechanik przy oponach.png" alt="Zespół Wulkanizacji Express">
+                    <img src="mechanik przy oponach.png" alt="Zespół Wulkanizacji Express" width="600" height="400" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -1287,7 +1173,6 @@
     <button class="back-to-top" id="back-to-top" aria-label="Wróć na górę"><i class="fas fa-chevron-up"></i></button>
 
     <script>
-        // Cookie Management - Optimized
         const setCookie = (name, value, days) => {
             const date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -1317,8 +1202,6 @@
             loadMap();
         };
 
-        // Mobile-optimized scroll handling with requestAnimationFrame
-        let scrollTimeout;
         let isScrolling = false;
 
         const handleScroll = () => {
@@ -1326,7 +1209,6 @@
             isScrolling = true;
 
             requestAnimationFrame(() => {
-                // Reveal animation - only process visible elements
                 const reveals = document.querySelectorAll('.reveal:not(.active)');
                 reveals.forEach(el => {
                     const rect = el.getBoundingClientRect();
@@ -1335,7 +1217,6 @@
                     }
                 });
 
-                // Back to top button
                 const btt = document.getElementById('back-to-top');
                 if (window.scrollY > 500) {
                     btt.classList.add('visible');
@@ -1347,9 +1228,7 @@
             });
         };
 
-        // Initialize on DOM ready
         document.addEventListener('DOMContentLoaded', () => {
-            // Cookie banner
             if (!getCookie('cookie_consent')) {
                 document.getElementById('cookie-banner').classList.add('active');
             } else {
@@ -1357,21 +1236,18 @@
             }
             document.getElementById('cookie-accept').addEventListener('click', acceptCookies);
 
-            // Mobile menu toggle
             const navToggle = document.getElementById('nav-toggle');
             const navMenu = document.getElementById('nav-menu');
             navToggle?.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
             });
 
-            // Close menu when link is clicked
             navMenu?.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('active');
                 });
             });
 
-            // Accordion - Optimized with event delegation
             document.addEventListener('click', (e) => {
                 if (e.target.closest('.accordion-header')) {
                     const header = e.target.closest('.accordion-header');
@@ -1382,24 +1258,19 @@
                 }
             });
 
-            // Scroll reveal and back-to-top - Optimized with passive listener
             window.addEventListener('scroll', handleScroll, { passive: true });
 
-            // Back to top click
             document.getElementById('back-to-top').addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Initial reveal check
             handleScroll();
 
-            // Optimize for low-end devices - disable smooth scroll
             if (navigator.deviceMemory && navigator.deviceMemory < 4) {
                 document.documentElement.style.scrollBehavior = 'auto';
             }
         });
 
-        // Prevent double-tap zoom on buttons and links
         document.addEventListener('touchstart', (e) => {
             if (e.target.closest('button, a[href^="tel:"], a[href^="mailto:"]')) {
                 e.preventDefault();
