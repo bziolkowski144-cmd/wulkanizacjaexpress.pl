@@ -21,8 +21,8 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" as="style">
-    <link rel="preload" href="logo.png" as="image" type="image/png">
-    <link rel="preload" href="wulkanizacja.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="logo.png" as="image" type="image/png" imagesrcset="logo.png 1x, logo.png 2x">
+    <link rel="preload" href="wulkanizacja.jpg" as="image" type="image/jpeg" imagesrcset="wulkanizacja.jpg 1x, wulkanizacja.jpg 2x">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -142,6 +142,15 @@
         .top-bar-link i {
             color: var(--primary-color);
             font-size: 16px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .nav-social i {
+            color: var(--primary-color);
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
         }
 
         .header {
@@ -162,7 +171,8 @@
 
         .logo-img {
             max-width: 200px;
-            height: auto;
+            width: 200px;
+            height: 80px;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -269,6 +279,13 @@
             overflow: hidden;
             background-attachment: fixed;
             background-size: cover;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-set(url('wulkanizacja-mobile.jpg') 1x, url('wulkanizacja.jpg') 2x);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('wulkanizacja-mobile.jpg');
+            }
         }
 
         .hero-overlay {
@@ -409,8 +426,13 @@
 
         .service-icon {
             font-size: 48px;
+            width: 48px;
+            height: 48px;
             color: var(--primary-color);
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-card h3 {
@@ -456,7 +478,12 @@
         .feature-item i {
             color: var(--primary-color);
             font-size: 24px;
+            width: 24px;
+            height: 24px;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .feature-item span {
@@ -472,8 +499,9 @@
 
         .about-image img {
             width: 100%;
-            height: auto;
+            height: 400px;
             display: block;
+            object-fit: cover;
         }
 
         .faq-container {
@@ -508,6 +536,11 @@
 
         .accordion-icon {
             transition: transform 0.3s ease;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .accordion-header[aria-expanded="true"] .accordion-icon {
@@ -557,6 +590,11 @@
             font-size: 22px;
             color: var(--primary-color);
             flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            width: 22px;
+            height: 22px;
         }
 
         .contact-details h3 {
@@ -655,6 +693,11 @@
             touch-action: manipulation;
         }
 
+        .footer-social a i {
+            width: 20px;
+            height: 20px;
+        }
+
         .footer-bottom {
             text-align: center;
             padding: 25px;
@@ -742,6 +785,11 @@
             touch-action: manipulation;
         }
 
+        .back-to-top i {
+            width: 20px;
+            height: 20px;
+        }
+
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
@@ -767,6 +815,8 @@
             }
             .logo-img {
                 max-width: 100px;
+                width: 100px;
+                height: 40px;
             }
             .header-text {
                 text-align: center;
@@ -879,6 +929,8 @@
             }
             .logo-img {
                 max-width: 80px;
+                width: 80px;
+                height: 32px;
             }
             .services-grid {
                 grid-template-columns: 1fr;
@@ -953,7 +1005,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <img src="logo.png" alt="Logo Wulkanizacja Express" class="logo-img" width="200" height="auto" loading="eager" decoding="sync">
+            <img src="logo.png" alt="Logo Wulkanizacja Express" class="logo-img" width="200" height="80" loading="eager" decoding="sync">
             <div class="header-text">
                 <h1 class="header-title">Wulkanizacja Express</h1>
                 <p class="header-subtitle">Profesjonalny serwis oponowy i klimatyzacji - szybko i niezawodnie</p>
@@ -999,49 +1051,19 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
-                    <h3>Wymiana opon</h3>
-                    <p>Profesjonalna wymiana opon letnich i zimowych dla samochodów osobowych i motocykli.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Naprawa opon</h3>
-                    <p>Szybka naprawa przebić i uszkodzeń opon metodą wulkanizacji na gorąco lub zimno.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
-                    <h3>Wyważanie kół</h3>
-                    <p>Precyzyjne wyważanie kół na nowoczesnych maszynach dla maksymalnego komfortu jazdy.</p>
+                    <div class="service-icon"><i class="fas fa-tire"></i></div>
+                    <h3>Wymiana Opon</h3>
+                    <p>Profesjonalna wymiana opon letnich i zimowych. Szybka obsługa, najwyższa jakość.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-circle-notch"></i></div>
-                    <h3>Naprawa felg</h3>
-                    <p>Profesjonalna regeneracja, prostowanie i naprawa felg aluminiowych oraz stalowych.</p>
+                    <h3>Wyważanie Kół</h3>
+                    <p>Precyzyjne wyważanie kół nowoczesnym sprzętem. Gwarantujemy płynną jazdę.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-snowflake"></i></div>
-                    <h3>Naprawa i serwis klimatyzacji</h3>
-                    <p>Kompleksowy serwis, odgrzybianie oraz nabijanie klimatyzacji samochodowej.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-warehouse"></i></div>
-                    <h3>Przechowalnia</h3>
-                    <p>Bezpieczne przechowywanie opon w odpowiednich warunkach poza sezonem.</p>
-                </div>
-				 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-money-bill"></i></div>
-                    <h3>Sprzedaż opon</h3>
-                    <p>Szeroki wybór opon letnich, zimowych i całorocznych. Fachowe doradztwo i dopasowanie do każdego pojazdu.</p>
-                </div>
-				 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-money-bill"></i></div>
-                    <h3>Sprzedaż felg</h3>
-                    <p>Felgi stalowe i aluminiowe do różnych marek samochodów. Pomoc w doborze odpowiedniego rozmiaru i wzoru.</p>
-                </div>
-				 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-car-crash"></i></div>
-                    <h3>Sprzedaż części samochodowych</h3>
-                    <p>Nowe części samochodowe do aut osobowych i dostawczych. Sprawdzone produkty i szybka realizacja zamówień.</p>
+                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Naprawa Felg</h3>
+                    <p>Profesjonalna naprawa i regulacja felg aluminiowych i stalowych.</p>
                 </div>
             </div>
         </section>
@@ -1063,7 +1085,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="mechanik przy oponach.png" alt="Zespół Wulkanizacji Express" width="600" height="400" loading="lazy" decoding="async">
+                    <img src="mechanik przy oponach.png" alt="Zespół Wulkanizacji Express" width="600" height="400" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 50vw">
                 </div>
             </div>
         </section>
