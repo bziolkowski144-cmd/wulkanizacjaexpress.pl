@@ -13,16 +13,17 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wulkanizacjaexpress.pl">
     
-  <title>Wulkanizacja Warszawa - Wymiana Opon, Wyważanie Kół | Wulkanizacja Express</title>
+    <title>Wulkanizacja Warszawa - Wymiana Opon, Wyważanie Kół | Wulkanizacja Express</title>
     <link rel="icon" href="1.png" type="image/png">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Optimized with display=swap for faster rendering -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome Icons - Optimized with async loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <style>
         /* ===================================
@@ -101,10 +102,9 @@
             padding: 12px 0;
             display: flex;
             justify-content: center;
-			
-			    position: sticky;
-    top: 0;
-    z-index: 9999;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
         }
 
         .top-bar-content {
@@ -179,21 +179,20 @@
             color: var(--text-gray);
             font-weight: 300;
         }
-		
-		.contact-link {
-    display: inline-block;
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
 
-.contact-link:hover {
-    color: #f1c40f;              /* żółty tekst */
-    background-color: rgba(241, 196, 15, 0.15);  /* delikatne żółte tło */
-    padding: 3px 6px;
-    border-radius: 6px;
-}
+        .contact-link {
+            display: inline-block;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .contact-link:hover {
+            color: #f1c40f;
+            background-color: rgba(241, 196, 15, 0.15);
+            padding: 3px 6px;
+            border-radius: 6px;
+        }
 
         /* ===================================
            Navigation
@@ -234,7 +233,6 @@
             font-size: 15px;
             padding: 10px 15px;
             border-radius: 8px;
-            transition: var(--transition);
         }
 
         .nav-link:hover, .nav-link.active {
@@ -264,7 +262,6 @@
             height: 3px;
             background: var(--text-white);
             border-radius: 2px;
-            transition: var(--transition);
             transform-origin: center;
         }
 
@@ -339,23 +336,19 @@
             font-size: 16px;
             font-weight: 700;
             border-radius: var(--border-radius);
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 200px;
             min-height: 56px;
+            min-width: 200px;
         }
 
         .btn-primary {
             background: var(--primary-color);
             color: var(--text-dark);
-            box-shadow: 0 4px 15px rgba(245, 196, 0, 0.2);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 196, 0, 0.3);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-outline {
@@ -364,29 +357,18 @@
         }
 
         .btn-outline:hover {
-            background: var(--primary-color);
-            color: var(--text-dark);
+            background: rgba(245, 196, 0, 0.1);
             transform: translateY(-2px);
         }
 
         /* ===================================
-           Container & Sections
+           Section Styles
            =================================== */
 
-        .container {
+        .section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px 20px;
-        }
-
-        .section {
-            margin-bottom: 120px;
-        }
-
-        .section-alt {
-            background: var(--bg-dark-soft);
-            padding: 80px 40px;
-            border-radius: 30px;
+            padding: 80px 20px;
         }
 
         .section-header {
@@ -395,22 +377,22 @@
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
             color: var(--primary-color);
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .section-divider {
-            width: 80px;
+            width: 60px;
             height: 4px;
             background: var(--primary-color);
             margin: 0 auto;
-            border-radius: 2px;
         }
 
         /* ===================================
-           Services Grid
+           Services Section
            =================================== */
 
         .services-grid {
@@ -421,79 +403,105 @@
 
         .service-card {
             background: var(--bg-dark-card);
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
-            transition: var(--transition);
             text-align: center;
+            transition: var(--transition);
         }
 
         .service-card:hover {
             border-color: var(--primary-color);
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
 
         .service-icon {
-            font-size: 40px;
+            font-size: 48px;
             color: var(--primary-color);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .service-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--text-white);
         }
 
         .service-card p {
             color: var(--text-gray);
-            font-size: 0.95rem;
+            line-height: 1.8;
         }
 
         /* ===================================
            About Section
            =================================== */
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
+
         .about-text p {
             font-size: 1.1rem;
             color: var(--text-gray);
             margin-bottom: 30px;
+            line-height: 1.8;
         }
+
         .about-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
+
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: var(--text-white);
-            font-weight: 500;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(245, 196, 0, 0.05);
+            border-radius: 8px;
         }
+
         .feature-item i {
             color: var(--primary-color);
+            font-size: 24px;
+            flex-shrink: 0;
         }
-        .about-image img {
+
+        .feature-item span {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .about-image {
             border-radius: 20px;
+            overflow: hidden;
             box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
         }
 
         /* ===================================
            Accordion (FAQ)
            =================================== */
 
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         .accordion-item {
             background: var(--bg-dark-card);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            margin-bottom: 15px;
             overflow: hidden;
         }
 
@@ -507,6 +515,8 @@
             font-weight: 600;
             color: var(--text-white);
             font-size: 1.1rem;
+            background: none;
+            cursor: pointer;
         }
 
         .accordion-icon {
@@ -546,7 +556,11 @@
             gap: 30px;
         }
 
-        .contact-item { display: flex; gap: 20px; align-items: flex-start; }
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
 
         .contact-icon {
             width: 56px;
@@ -562,22 +576,28 @@
             flex-shrink: 0;
         }
 
-        .contact-details h3 { font-size: 1.2rem; color: var(--primary-color); text-transform: uppercase; margin-bottom: 4px; }
-        .contact-details p, .contact-details a { 
-            font-size: 1.05rem; 
-            color: var(--text-gray); 
+        .contact-details h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
-		
-		.contact-details a {
-    transition: 0.2s ease;
-}
 
-.contact-details a:hover {
-    color: var(--primary-color);
-    background-color: rgba(245, 196, 0, 0.15);
-    padding: 3px 6px;
-    border-radius: 6px;
-}
+        .contact-details p, .contact-details a {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+        }
+
+        .contact-details a {
+            transition: 0.2s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-color);
+            background-color: rgba(245, 196, 0, 0.15);
+            padding: 3px 6px;
+            border-radius: 6px;
+        }
 
         .contact-map {
             width: 100%;
@@ -601,7 +621,12 @@
            Footer
            =================================== */
 
-        .footer { background: var(--bg-dark-soft); border-top: 3px solid var(--primary-color); padding: 70px 0 0; }
+        .footer {
+            background: var(--bg-dark-soft);
+            border-top: 3px solid var(--primary-color);
+            padding: 70px 0 0;
+        }
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -611,24 +636,47 @@
             gap: 40px;
         }
 
-        .footer-section h4 { color: var(--primary-color); margin-bottom: 20px; text-transform: uppercase; }
-        .footer-contact li { 
-            display: flex; 
-            gap: 12px; 
-            margin-bottom: 12px; 
-            color: var(--text-gray); 
-        }
-        .footer-social { display: flex; gap: 15px; }
-        .footer-social a {
-            width: 44px; height: 44px; background: var(--bg-dark-card); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 20px;
+        .footer-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        .footer-bottom { text-align: center; padding: 25px; border-top: 1px solid var(--border-color); font-size: 14px; color: var(--text-gray); }
+        .footer-contact li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-gray);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-dark-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--text-gray);
+        }
 
         /* ===================================
            Cookie Banner
            =================================== */
+
         .cookie-banner {
             position: fixed;
             bottom: 20px;
@@ -646,52 +694,45 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-        .cookie-banner.active { display: flex; }
-        .cookie-text { flex: 1; min-width: 250px; font-size: 14px; color: var(--text-white); }
-        .cookie-text a { color: var(--primary-color); text-decoration: underline; }
-        .cookie-btns { display: flex; gap: 10px; }
-        .btn-cookie { padding: 10px 20px; font-size: 14px; min-width: auto; min-height: auto; }
+
+        .cookie-banner.active {
+            display: flex;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 250px;
+            font-size: 14px;
+            color: var(--text-white);
+        }
+
+        .cookie-text a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .cookie-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-cookie {
+            padding: 10px 20px;
+            font-size: 14px;
+            min-width: auto;
+            min-height: auto;
+        }
 
         /* ===================================
-           Media Queries
+           Animations & Utility Classes
            =================================== */
-
-        @media (max-width: 1024px) {
-            .about-content, .contact-grid { grid-template-columns: 1fr; }
-            .about-image { order: -1; max-width: 600px; margin: 0 auto; }
-        }
-
-        @media (max-width: 768px) {
-            .top-bar { display: none; }
-            .header-container { gap: 15px; }
-            .logo-img { max-width: 100px; }
-            .header-text { text-align: center; }
-            .nav-toggle { display: flex; }
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                height: 0;
-                background: var(--bg-dark);
-                flex-direction: column;
-                align-items: center;
-                overflow: hidden;
-                transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .nav-menu.active { height: auto; padding: 40px 0; border-bottom: 1px solid var(--border-color); }
-            .nav-link { font-size: 1.2rem; width: 100%; text-align: center; padding: 15px; }
-            .hero { height: 75vh; text-align: center; }
-            .hero-btns { justify-content: center; }
-            .btn { width: 100%; }
-            .about-features { grid-template-columns: 1fr; }
-        }
 
         .reveal {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
@@ -715,8 +756,82 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 99;
+            cursor: pointer;
         }
-        .back-to-top.visible { opacity: 1; visibility: visible; }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===================================
+           Media Queries
+           =================================== */
+
+        @media (max-width: 1024px) {
+            .about-content, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            .header-container {
+                gap: 15px;
+            }
+            .logo-img {
+                max-width: 100px;
+            }
+            .header-text {
+                text-align: center;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+                transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .nav-menu.active {
+                height: auto;
+                padding: 40px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-link {
+                font-size: 1.2rem;
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+            }
+            .hero {
+                height: 75vh;
+                text-align: center;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .btn {
+                width: 100%;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -738,7 +853,7 @@
                 <i class="fas fa-envelope"></i>
                 <span>kontakt@wulkanizacjaexpress.pl</span>
             </a>
-			<a href="tel:+48797629371" class="top-bar-link">
+            <a href="tel:+48797629371" class="top-bar-link">
                 <i class="fas fa-phone"></i>
                 <span>+48 797 629 371</span>
             </a>
@@ -768,7 +883,6 @@
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#rezerwacje" class="nav-link">Rezerwacje</a></li>
                 <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
-
             </ul>
         </div>
     </nav>
@@ -786,7 +900,7 @@
         </div>
     </section>
 
-    <main class="container">
+    <main>
         <!-- Services Section -->
         <section class="section reveal" id="uslugi">
             <div class="section-header">
@@ -843,9 +957,9 @@
         </section>
 
         <!-- About Section -->
-        <section class="section section-alt reveal" id="o-nas">
+        <section class="section reveal" id="o-nas">
             <div class="section-header">
-                <h2 class="section-title">O nas</h2>
+                <h2 class="section-title">O Nas</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="about-content">
@@ -900,13 +1014,10 @@
                 <p style="margin-top: 20px; color: var(--text-gray);">Skorzystaj z naszego systemu rezerwacji online lub zadzwoń bezpośrednio.</p>
             </div>
             <a href="https://calendly.com/katarzyna-finansebezstresu/30min" class="btn btn-primary"><i class="fa-solid fa-calendar"></i> Umów spotkanie online</a>
-			      
-			  <a href="tel:+48797629371" class="btn btn-primary">
-    <i class="fas fa-phone"></i> +48 797 629 371
-</a>
+            <a href="tel:+48797629371" class="btn btn-primary">
+                <i class="fas fa-phone"></i> +48 797 629 371
+            </a>
         </section>
-		
-
 
         <!-- Contact Section -->
         <section class="section reveal" id="kontakt">
@@ -917,14 +1028,13 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
-
-<div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
- <div class="contact-details"><h3>Telefon</h3><a href="tel:+48797629371">+48 797 629 371</a></div>
- </div> <div class="contact-item"> <div class="contact-icon"><i class="fas fa-envelope"></i></div>
- <div class="contact-details"><h3>Email</h3><a href="mailto:kontakt@wulkanizacjaexpress.pl">
-            kontakt@wulkanizacjaexpress.pl
-        </a></div>
- </div>
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-details"><h3>Telefon</h3><a href="tel:+48797629371">+48 797 629 371</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details"><h3>Email</h3><a href="mailto:kontakt@wulkanizacjaexpress.pl">kontakt@wulkanizacjaexpress.pl</a></div>
+                    </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-details"><h3>Adres</h3><p>ul. Bartycka 116, 00-716 Warszawa</p></div>
@@ -942,8 +1052,6 @@
                 </div>
             </div>
         </section>
-
-
     </main>
 
     <!-- Footer -->
@@ -960,9 +1068,7 @@
                     <li><i class="fas fa-map-marker-alt"></i> ul. Bartycka 116, Warszawa</li>
                 </ul>
             </div>
-            <div class="footer-section">
-
-            </div>
+            <div class="footer-section"></div>
             <div class="footer-section">
                 <h4>Informacje Prawne</h4>
                 <ul class="footer-contact">
@@ -977,79 +1083,97 @@
     <button class="back-to-top" id="back-to-top" aria-label="Wróć na górę"><i class="fas fa-chevron-up"></i></button>
 
     <script>
-        function setCookie(name, value, days) {
+        // Cookie Management - Optimized
+        const setCookie = (name, value, days) => {
             const date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/;SameSite=Lax";
-        }
+            document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+        };
 
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for(let i=0;i < ca.length;i++) {
-                let c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        const getCookie = (name) => {
+            const nameEQ = `${name}=`;
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith(nameEQ)) return cookie.substring(nameEQ.length);
             }
             return null;
-        }
+        };
 
-        function loadMap() {
+        const loadMap = () => {
             const mapContainer = document.getElementById('map-container');
             if (mapContainer) {
                 mapContainer.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.6465451234567!2d21.0543210!3d52.2109870!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccf0f0f0f0f0%3A0x0!2sBartycka%20116%2C%20Warszawa!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl" width="100%" height="350" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>';
             }
-        }
+        };
 
-        function acceptCookies() {
+        const acceptCookies = () => {
             setCookie('cookie_consent', 'accepted', 365);
             document.getElementById('cookie-banner').classList.remove('active');
             loadMap();
-        }
+        };
 
+        // Initialize on DOM ready - Optimized with event delegation
         document.addEventListener('DOMContentLoaded', () => {
+            // Cookie banner
             if (!getCookie('cookie_consent')) {
                 document.getElementById('cookie-banner').classList.add('active');
             } else {
                 loadMap();
             }
-
             document.getElementById('cookie-accept').addEventListener('click', acceptCookies);
 
+            // Mobile menu toggle
             const navToggle = document.getElementById('nav-toggle');
             const navMenu = document.getElementById('nav-menu');
-            if (navToggle) {
-                navToggle.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
-                });
-            }
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
 
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
+            // Accordion - Optimized with event delegation
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.accordion-header')) {
+                    const header = e.target.closest('.accordion-header');
                     const content = header.nextElementSibling;
                     const isOpen = header.getAttribute('aria-expanded') === 'true';
                     header.setAttribute('aria-expanded', !isOpen);
-                    content.style.maxHeight = !isOpen ? content.scrollHeight + "px" : null;
-                });
+                    content.style.maxHeight = !isOpen ? content.scrollHeight + 'px' : null;
+                }
             });
 
-            const reveal = () => {
-                document.querySelectorAll('.reveal').forEach(el => {
-                    if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-                });
+            // Scroll reveal and back-to-top - Optimized with throttling
+            let scrollTimeout;
+            const handleScroll = () => {
+                if (scrollTimeout) return;
+                scrollTimeout = setTimeout(() => {
+                    // Reveal animation
+                    document.querySelectorAll('.reveal').forEach(el => {
+                        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                            el.classList.add('active');
+                        }
+                    });
+
+                    // Back to top button
+                    const btt = document.getElementById('back-to-top');
+                    if (window.scrollY > 500) {
+                        btt.classList.add('visible');
+                    } else {
+                        btt.classList.remove('visible');
+                    }
+
+                    scrollTimeout = null;
+                }, 100);
             };
-            window.addEventListener('scroll', () => {
-                reveal();
-                const btt = document.getElementById('back-to-top');
-                if (window.scrollY > 500) btt.classList.add('visible');
-                else btt.classList.remove('visible');
-            });
-            reveal();
-            
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+
+            // Back to top click
             document.getElementById('back-to-top').addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
+            // Initial reveal check
+            handleScroll();
         });
     </script>
 </body>
