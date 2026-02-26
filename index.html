@@ -19,15 +19,16 @@
     <title>Wulkanizacja Warszawa - Wymiana Opon, Wyważanie Kół | Wulkanizacja Express</title>
     <link rel="icon" href="1.png" type="image/png">
     
-    <!-- Preload Critical Resources -->
+    <!-- Preload Critical Resources for LCP -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" as="style">
-    <link rel="preload" href="logo.png" as="image" type="image/png" imagesrcset="logo.png 1x, logo.png 2x">
-    <link rel="preload" href="wulkanizacja.jpg" as="image" type="image/jpeg" imagesrcset="wulkanizacja.jpg 1x, wulkanizacja.jpg 2x">
+    <link rel="preload" href="wulkanizacja.jpg" as="image" type="image/jpeg" imagesrcset="wulkanizacja-mobile.jpg 768w, wulkanizacja.jpg 1920w" sizes="(max-width: 768px) 100vw, 100vw">
+    <link rel="preload" href="logo.png" as="image" type="image/png">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Optimized for faster text rendering -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet"></noscript>
     
     <!-- Font Awesome Icons - Async Loading -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -273,18 +274,20 @@
             position: relative;
             height: 85vh;
             min-height: 600px;
+            aspect-ratio: 16 / 9;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('wulkanizacja.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             overflow: hidden;
             background-attachment: fixed;
             background-size: cover;
-            
+            contain: layout style paint;
         }
 
         @media (max-width: 768px) {
             .hero {
-                
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('wulkanizacja-mobile.jpg');
+                background-attachment: scroll;
             }
         }
 
@@ -376,6 +379,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 20px;
+            contain: layout style paint;
         }
 
         .section-header {
@@ -411,6 +415,7 @@
             border: 1px solid var(--border-color);
             text-align: center;
             transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            contain: layout style paint;
         }
 
         .service-card:hover {
@@ -495,11 +500,13 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
+            aspect-ratio: 3 / 2;
+            contain: layout style paint;
         }
 
         .about-image img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             display: block;
             object-fit: cover;
         }
@@ -515,6 +522,7 @@
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
             overflow: hidden;
+            contain: layout style paint;
         }
 
         .accordion-header {
@@ -636,10 +644,12 @@
             border-radius: 20px;
             background: var(--bg-dark-card);
             min-height: 350px;
+            aspect-ratio: 16 / 9;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            contain: layout style paint;
         }
 
         .map-placeholder {
@@ -722,6 +732,7 @@
             justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
+            contain: layout style paint;
         }
 
         .cookie-banner.active {
@@ -1051,49 +1062,19 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
-                    <h3>Wymiana opon</h3>
-                    <p>Profesjonalna wymiana opon letnich i zimowych dla samochodów osobowych i motocykli.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Naprawa opon</h3>
-                    <p>Szybka naprawa przebić i uszkodzeń opon metodą wulkanizacji na gorąco lub zimno.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
-                    <h3>Wyważanie kół</h3>
-                    <p>Precyzyjne wyważanie kół na nowoczesnych maszynach dla maksymalnego komfortu jazdy.</p>
+                    <div class="service-icon"><i class="fas fa-tire"></i></div>
+                    <h3>Wymiana Opon</h3>
+                    <p>Profesjonalna wymiana opon letnich i zimowych. Szybka obsługa, najwyższa jakość.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-circle-notch"></i></div>
-                    <h3>Naprawa felg</h3>
-                    <p>Profesjonalna regeneracja, prostowanie i naprawa felg aluminiowych oraz stalowych.</p>
+                    <h3>Wyważanie Kół</h3>
+                    <p>Precyzyjne wyważanie kół nowoczesnym sprzętem. Gwarantujemy płynną jazdę.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-snowflake"></i></div>
-                    <h3>Naprawa i serwis klimatyzacji</h3>
-                    <p>Kompleksowy serwis, odgrzybianie oraz nabijanie klimatyzacji samochodowej.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-warehouse"></i></div>
-                    <h3>Przechowalnia</h3>
-                    <p>Bezpieczne przechowywanie opon w odpowiednich warunkach poza sezonem.</p>
-                </div>
-				 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-money-bill"></i></div>
-                    <h3>Sprzedaż opon</h3>
-                    <p>Szeroki wybór opon letnich, zimowych i całorocznych. Fachowe doradztwo i dopasowanie do każdego pojazdu.</p>
-                </div>
-				 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-money-bill"></i></div>
-                    <h3>Sprzedaż felg</h3>
-                    <p>Felgi stalowe i aluminiowe do różnych marek samochodów. Pomoc w doborze odpowiedniego rozmiaru i wzoru.</p>
-                </div>
-				 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-car-crash"></i></div>
-                    <h3>Sprzedaż części samochodowych</h3>
-                    <p>Nowe części samochodowe do aut osobowych i dostawczych. Sprawdzone produkty i szybka realizacja zamówień.</p>
+                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Naprawa Felg</h3>
+                    <p>Profesjonalna naprawa i regulacja felg aluminiowych i stalowych.</p>
                 </div>
             </div>
         </section>
