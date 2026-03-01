@@ -247,7 +247,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transition: color 0.2s ease, background-color 0.2s ease;
         }
 
-        .nav-link:hover, .nav-link:active, .nav-link.active {
+        .nav-link:hover, .nav-link:active {
             color: var(--primary-color);
             background: rgba(245, 196, 0, 0.1);
         }
@@ -290,11 +290,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-size: cover;
         }
 
-        @media (max-width: 768px) {
-            .hero {
-            }
-        }
-
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -311,42 +306,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 800;
             color: var(--primary-color);
-            max-width: 800px;
-            line-height: 1.1;
             margin-bottom: 20px;
+            line-height: 1.1;
             text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 4vw, 1.5rem);
-            color: var(--text-white);
-            max-width: 650px;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--text-gray);
             margin-bottom: 40px;
+            max-width: 600px;
             font-weight: 300;
         }
 
         .hero-btns {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
+            padding: 14px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 16px 36px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: var(--border-radius);
-            min-height: 56px;
+            gap: 8px;
+            transition: var(--transition);
             min-width: 200px;
+            text-align: center;
             touch-action: manipulation;
-            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         .btn-primary {
@@ -355,28 +350,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .btn-primary:hover {
-            background: var(--primary-light);
+            background: var(--primary-dark);
             transform: translateY(-2px);
-        }
-
-        .btn-primary:active {
-            background: var(--primary-light);
-            transform: scale(0.98);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-outline {
-            border: 2px solid var(--primary-color);
+            background: transparent;
             color: var(--primary-color);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-outline:hover {
-            background: rgba(245, 196, 0, 0.1);
+            background: var(--primary-color);
+            color: var(--text-dark);
             transform: translateY(-2px);
-        }
-
-        .btn-outline:active {
-            background: rgba(245, 196, 0, 0.1);
-            transform: scale(0.98);
+            box-shadow: var(--shadow-md);
         }
 
         .section {
@@ -394,15 +383,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 800;
             color: var(--primary-color);
+            margin-bottom: 15px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
         .section-divider {
-            width: 60px;
+            width: 80px;
             height: 4px;
             background: var(--primary-color);
             margin: 0 auto;
+            border-radius: 2px;
         }
 
         .services-grid {
@@ -413,57 +404,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .service-card {
             background: var(--bg-dark-card);
+            border: 1px solid var(--border-color);
             padding: 40px 30px;
             border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
             text-align: center;
-            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
         .service-card:hover {
             border-color: var(--primary-color);
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
-        .service-card:active {
-            border-color: var(--primary-color);
-            transform: translateY(-4px);
-        }
-
         .service-icon {
-            font-size: 48px;
-            width: 48px;
-            height: 48px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background: rgba(245, 196, 0, 0.1);
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 28px;
+            color: var(--primary-color);
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
             color: var(--text-white);
+            margin-bottom: 10px;
         }
 
         .service-card p {
             color: var(--text-gray);
-            line-height: 1.8;
+            font-size: 0.95rem;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
         .about-text p {
-            font-size: 1.1rem;
             color: var(--text-gray);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.8;
         }
 
@@ -471,31 +468,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-top: 30px;
         }
 
         .feature-item {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px;
             background: rgba(245, 196, 0, 0.05);
             border-radius: 8px;
         }
 
         .feature-item i {
             color: var(--primary-color);
-            font-size: 24px;
-            width: 24px;
-            height: 24px;
+            font-size: 20px;
             flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: 2px;
         }
 
         .feature-item span {
             color: var(--text-white);
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .about-image {
@@ -788,18 +782,100 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             visibility: hidden;
             transition: opacity 0.3s ease;
             z-index: 99;
-            cursor: pointer;
-            touch-action: manipulation;
-        }
-
-        .back-to-top i {
-            width: 20px;
-            height: 20px;
         }
 
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
+        }
+
+        /* Pricing Section Styles */
+        .pricing-section {
+            display: none;
+        }
+
+        .pricing-section.active {
+            display: block;
+        }
+
+        .pricing-table-container {
+            margin-top: 40px;
+            overflow-x: auto;
+        }
+
+        .pricing-category {
+            margin-bottom: 60px;
+        }
+
+        .pricing-category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .pricing-table thead {
+            background: rgba(245, 196, 0, 0.1);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .pricing-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-table td {
+            padding: 15px 15px;
+            color: var(--text-gray);
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tbody tr:hover {
+            background: rgba(245, 196, 0, 0.05);
+        }
+
+        .pricing-table .price-cell {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .pricing-table .category-label {
+            background: rgba(245, 196, 0, 0.08);
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* Hide main content when pricing is active */
+        .main-content {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
         }
 
         @media (max-width: 1024px) {
@@ -965,6 +1041,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 font-size: 0.9rem;
                 gap: 8px;
             }
+            .pricing-table {
+                font-size: 0.85rem;
+            }
+            .pricing-table th, .pricing-table td {
+                padding: 12px 8px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1033,11 +1115,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu" id="nav-menu">
+                <li><button id="btn-home" class="nav-link" title="Wróć na stronę główną">Strona główna</button></li>
                 <li><a href="#uslugi" class="nav-link">Usługi</a></li>
                 <li><a href="#o-nas" class="nav-link">O nas</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#rezerwacje" class="nav-link">Rezerwacje</a></li>
                 <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+                <li><button id="btn-pricing" class="nav-link" title="Przejdź do cennika">Cennik</button></li>
             </ul>
         </div>
     </nav>
@@ -1055,7 +1139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <main>
+    <main class="main-content" id="main-content">
         <!-- Services Section -->
         <section class="section reveal" id="uslugi">
              <div class="section-header">
@@ -1098,7 +1182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3>Sprzedaż opon</h3>
                     <p>Szeroki wybór opon letnich, zimowych i całorocznych. Fachowe doradztwo i dopasowanie do każdego pojazdu.</p>
                 </div>
-				 <div class="service-card">
+                <div class="service-card">
                     <div class="service-icon"><i class="fas fa-money-bill"></i></div>
                     <h3>Sprzedaż felg</h3>
                     <p>Felgi stalowe i aluminiowe do różnych marek samochodów. Pomoc w doborze odpowiedniego rozmiaru i wzoru.</p>
@@ -1209,6 +1293,184 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </section>
     </main>
 
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing-section">
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Cennik - Samochody Osobowe, SUV, 4x4 i Dostawcze</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="pricing-table-container">
+                <!-- SAMOCHODY OSOBOWE -->
+                <div class="pricing-category">
+                    <h3 class="pricing-category-title">Samochody Osobowe</h3>
+                    
+                    <!-- Felgi Stalowe -->
+                    <h4 style="color: var(--text-white); font-size: 1.3rem; margin-bottom: 20px; margin-top: 30px;">Felgi Stalowe</h4>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Rozmiar</th>
+                                <th>do 16"</th>
+                                <th>17"</th>
+                                <th>18"</th>
+                                <th>19"</th>
+                                <th>20"</th>
+                                <th>21"</th>
+                                <th>22" - 24"</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="category-label">Wymiana opon z wyważaniem / kpl.</td>
+                                <td class="price-cell">160 zł</td>
+                                <td class="price-cell">160 zł</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                            </tr>
+                            <tr>
+                                <td class="category-label">Wymiana kół z wyważaniem / kpl.</td>
+                                <td class="price-cell">90 zł</td>
+                                <td class="price-cell">90 zł</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- Felgi Aluminiowe -->
+                    <h4 style="color: var(--text-white); font-size: 1.3rem; margin-bottom: 20px; margin-top: 30px;">Felgi Aluminiowe</h4>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Rozmiar</th>
+                                <th>do 16"</th>
+                                <th>17"</th>
+                                <th>18"</th>
+                                <th>19"</th>
+                                <th>20"</th>
+                                <th>21"</th>
+                                <th>22" - 24"</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="category-label">Wymiana opon z wyważaniem / kpl.</td>
+                                <td class="price-cell">170 zł</td>
+                                <td class="price-cell">190 zł</td>
+                                <td class="price-cell">210 zł</td>
+                                <td class="price-cell">230 zł</td>
+                                <td class="price-cell">280 zł</td>
+                                <td class="price-cell">310 zł</td>
+                                <td class="price-cell">360 zł</td>
+                            </tr>
+                            <tr>
+                                <td class="category-label">Wymiana kół z wyważaniem / kpl.</td>
+                                <td class="price-cell">110 zł</td>
+                                <td class="price-cell">110 zł</td>
+                                <td class="price-cell">110 zł</td>
+                                <td class="price-cell">140 zł</td>
+                                <td class="price-cell">170 zł</td>
+                                <td class="price-cell">180 zł</td>
+                                <td class="price-cell">180 zł</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- SUV / 4X4 -->
+                <div class="pricing-category">
+                    <h3 class="pricing-category-title">SUV / 4x4</h3>
+                    
+                    <!-- Felgi Stalowe -->
+                    <h4 style="color: var(--text-white); font-size: 1.3rem; margin-bottom: 20px; margin-top: 30px;">Felgi Stalowe</h4>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Rozmiar</th>
+                                <th>do 16"</th>
+                                <th>17"</th>
+                                <th>18"</th>
+                                <th>19"</th>
+                                <th>20"</th>
+                                <th>21"</th>
+                                <th>22" - 24"</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="category-label">Wymiana opon z wyważaniem / kpl.</td>
+                                <td class="price-cell">170 zł</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                            </tr>
+                            <tr>
+                                <td class="category-label">Wymiana kół z wyważaniem / kpl.</td>
+                                <td class="price-cell">100 zł</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                                <td class="price-cell">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- Felgi Aluminiowe -->
+                    <h4 style="color: var(--text-white); font-size: 1.3rem; margin-bottom: 20px; margin-top: 30px;">Felgi Aluminiowe</h4>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Rozmiar</th>
+                                <th>do 16"</th>
+                                <th>17"</th>
+                                <th>18"</th>
+                                <th>19"</th>
+                                <th>20"</th>
+                                <th>21"</th>
+                                <th>22" - 24"</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="category-label">Wymiana opon z wyważaniem / kpl.</td>
+                                <td class="price-cell">170 zł</td>
+                                <td class="price-cell">190 zł</td>
+                                <td class="price-cell">210 zł</td>
+                                <td class="price-cell">230 zł</td>
+                                <td class="price-cell">270 zł</td>
+                                <td class="price-cell">300 zł</td>
+                                <td class="price-cell">340 zł</td>
+                            </tr>
+                            <tr>
+                                <td class="category-label">Wymiana kół z wyważaniem / kpl.</td>
+                                <td class="price-cell">110 zł</td>
+                                <td class="price-cell">110 zł</td>
+                                <td class="price-cell">110 zł</td>
+                                <td class="price-cell">140 zł</td>
+                                <td class="price-cell">150 zł</td>
+                                <td class="price-cell">170 zł</td>
+                                <td class="price-cell">170 zł</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -1267,6 +1529,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             loadMap();
         };
 
+        // Pricing view toggle functionality
+        const toggleView = (showPricing) => {
+            const mainContent = document.getElementById('main-content');
+            const pricingSection = document.getElementById('pricing-section');
+
+            if (showPricing) {
+                mainContent.classList.add('hidden');
+                pricingSection.classList.add('active');
+                setTimeout(() => {
+                    pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            } else {
+                mainContent.classList.remove('hidden');
+                pricingSection.classList.remove('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
         let isScrolling = false;
 
         const handleScroll = () => {
@@ -1300,6 +1580,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 loadMap();
             }
             document.getElementById('cookie-accept').addEventListener('click', acceptCookies);
+
+            // Pricing buttons event listeners
+            document.getElementById('btn-home').addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleView(false);
+            });
+            document.getElementById('btn-pricing').addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleView(true);
+            });
 
             const navToggle = document.getElementById('nav-toggle');
             const navMenu = document.getElementById('nav-menu');
